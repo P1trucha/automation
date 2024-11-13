@@ -3,14 +3,12 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:latest # Użyj obrazu Docker z Node.js
     steps:
       - checkout
-      - run: npm install
-      - run: npm test
-
-workflows:
-  version: 2
-  test:
-    jobs:
-      - test
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Run tests
+          command: chmod +x ./node_modules/.bin/jest && npm test
