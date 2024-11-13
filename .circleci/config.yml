@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   test:
     docker:
-      - image: circleci/node:latest # Użyj obrazu Docker z Node.js
+      - image: circleci/node:20 # Użyj obrazu Docker z Node.js
     steps:
       - checkout
       - run:
