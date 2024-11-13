@@ -27,16 +27,16 @@ test("Dzielenie 20 / 4 równe 5", () => {
   expect(dzielenie(20, 4)).toBe(5);
 });
 
-test("Podaj Hasło", () => {
-  expect(dzielenie("alamakota123")).toBe("alamakota123");
-});
-
-test("Podaj Hasło", () => {
+test("Podaj Hasło - poprawne", () => {
   expect(podajhasło("alamakota123")).toBe("alamakota123");
 });
 
+test("Podaj Hasło - niepoprawne", () => {
+  expect(podajhasło("zlehaslo")).toBe("Błędne hasło");
+});
+
 test("VAT", () => {
-  expect(vat(10)).toBe(10.23);
+  expect(vat(10)).toBeCloseTo(10.23, 2);
 });
 
 test("Liczba do kwadratu", () => {
@@ -48,9 +48,9 @@ test("Podaj wiek", () => {
 });
 
 test("EURO w PLN", () => {
-  expect(PLNwEuro(20)).toBe(86.8);
+  expect(PLNwEuro(20)).toBeCloseTo(86.8, 2);
 });
 
 test("Podatek za auto", () => {
-  expect(podatekauto(5000)).toBe(5100);
+  expect(podatekauto(5000)).toBeCloseTo(5100, 2);
 });
