@@ -1,14 +1,16 @@
 version: 2.1
 
 jobs:
-  test:
+  test: # Nazwa zadania
     docker:
-      - image: circleci/node:20 # Użyj obrazu Docker z Node.js
+      - image: circleci/node:latest # Wybierz wersję Node
     steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm install
-      - run:
-          name: Run tests
-          command: chmod +x ./node_modules/.bin/jest && npm test
+      - checkout # Pobiera kod źródłowy
+      - run: npm install # Instalacja zależności
+      - run: npm test # Uruchamianie testów
+
+workflows:
+  version: 2
+  test_workflow: # Nazwa workflow
+    jobs:
+      - test
